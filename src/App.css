@@ -1,0 +1,49 @@
+#root {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 12px;
+}
+
+td {
+  text-align: center;
+}
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+
+table #1 {
+  width: auto; 
+  text-align: right;
+}
+
+#staty {
+  float: left;  
+}
+
+#staty th {
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: left;
+  vertical-align: bottom;
+  
+}
+
+#staty td {
+  text-align: right;
+  border-top: 1px solid;   
+  vertical-align: bottom;
+}
+
+#tables {
+  margin-left: 20px;
+  float: left;
+}
+
+nav {
+  display: inline-block;
+}
