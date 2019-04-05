@@ -28,7 +28,10 @@ class PlayersStatAll extends Component {
   readPlayerStatHeaders() {
     const statistics = "statistics"
     var id = this.props.account_id;
-    console.log(this.props.data[id].global_rating);
+    var data =this.props.data[id];
+    console.log(data);
+      //var data2 = data.statistics;
+   //console.dir(data2);
 
     
     return 0;
