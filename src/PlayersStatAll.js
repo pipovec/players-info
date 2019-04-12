@@ -4,14 +4,14 @@ import './App.css';
 
 class PlayersStatAll extends Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.state = {
-     
+
     },
     this.load = this.load.bind(this),
     this.save = this.save.bind(this),
     this.delete = this.delete.bind(this)
-    
+
   }
 
   load(event) {
@@ -26,12 +26,16 @@ class PlayersStatAll extends Component {
   }
 
   readPlayerStatHeaders() {
-    const statistics = "statistics"
-    var id = this.props.account_id;
-    console.log(this.props.data[id].global_rating);
+    let All
+    if (typeof this.props.data[ this.props.account_id ] !== 'undefined') {
+      let all = Object.keys(this.props.data[ this.props.account_id ].statistics.all)
 
-    
-    return 0;
+      All = all.map((k)=>{
+        return  <th key={k+1}>{all[k]}</th>
+      })
+
+    }
+    return All;
   }
 
   delete(event) {
@@ -39,7 +43,7 @@ class PlayersStatAll extends Component {
     alert("Delete");
   }
 
-    render() {      
+    render() {
       const headers = this.readPlayerStatHeaders();
       return (
         <div className="card-body">
@@ -53,13 +57,13 @@ class PlayersStatAll extends Component {
           </nav>
           <table className="table">
             <thead className="thead-light">
-              <tr></tr>
+              <tr>{headers}</tr>
             </thead>
             <tbody>
               <tr></tr>
             </tbody>
           </table>
-          
+
         </div>
 
       );
