@@ -26,7 +26,7 @@ class PlayersStatAll extends Component {
   }
 
   readPlayerStatHeaders() {
-<<<<<<< HEAD
+
     let All
     if (typeof this.props.data[ this.props.account_id ] !== 'undefined') {
       let all = Object.keys(this.props.data[ this.props.account_id ].statistics.all)
@@ -34,14 +34,9 @@ class PlayersStatAll extends Component {
       All = all.map((k)=>{
         return  <th key={k+1}>{all[k]}</th>
       })
-=======
-    const statistics = "statistics"
-    var id = this.props.account_id;
-    var data =this.props.data[id];
-    console.log(data);
-      //var data2 = data.statistics;
-   //console.dir(data2);
->>>>>>> b87fea4759f0d9feffc9d45b35b9bc2e07ae43cb
+
+
+
 
     }
     return All;
