@@ -9,7 +9,7 @@ class PlayerInfo extends Component {
         const head = Object.getOwnPropertyNames(this.props.data[keys]);
         
         const Headers = head.map( (k) => {            
-          return k !== "statistics" && k!=='client_language' && k!== 'private' ? <th key={k}>{k}</th> : null
+          return k !== "statistics" && k!=='client_language' && k!== 'private' ? <th className="text-center" key={k}>{k}</th> : null
         })
         return Headers;
     }
@@ -18,11 +18,33 @@ class PlayerInfo extends Component {
         const keys = Object.getOwnPropertyNames(this.props.data);
         const data = Object.getOwnPropertyNames(this.props.data[keys]);
 
-        const Data = data.map( (k) => {            
-            return k !== "statistics" && k!== 'client_language' && k!== 'private' ? <td key={k+1}>{this.props.data[keys][k]}</td> : null
+        const Data = data.map( (k) => {        
+            if(k !== "statistics" && k!== 'client_language' && k!== 'private') {   
+                if( k === 'last_battle_time' || k === 'created_at' || k === 'updated_at' || k === 'logout_at' ) {
+                    let time = this.timeConverter(this.props.data[keys][k])
+                    return   <td key={k+1}>{time}</td>
+                }
+                else {
+                    return   <td key={k+1}> {this.props.data[keys][k]}</td>
+                }
+                 
+            }
           })
           return Data;
 
+    }
+
+    timeConverter(UNIX_timestamp){
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+        return time;
     }
 
     render() {   
