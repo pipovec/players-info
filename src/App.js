@@ -83,18 +83,14 @@ class App extends Component {
   };
 
   loadVehicleStat(account_id){
-    console.log(JSON.stringify({'account_id': account_id,
-    'fields': vehicleFileds,
-    'application_id': api_id
-   }))
-
+    
     fetch(URL3, {
       method: 'POST',      
       body: "&account_id="+account_id+"&fields"+vehicleFileds 
     })
     .then((res) => res.json())      
     .then((result) => {
-      console.log(result)
+      
       this.setState({vehicleStat: result })
     });
 

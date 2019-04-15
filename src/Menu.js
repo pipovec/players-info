@@ -16,8 +16,8 @@ class Menu extends Component {
     this.ChangeLoad = this.ChangeLoad.bind(this)
   }
 
-  load(event) {
-    this.setState({ showLoadForm: true })
+  load(event) {    
+    this.setState({ showLoadForm: true })    
     event.preventDefault()
 
   }
@@ -41,8 +41,8 @@ class Menu extends Component {
   }
 
   getFormLoad() {
-    this.getLocalStoreKeys()
-
+    var data = this.getLocalStoreKeys()
+    console.log(data)
     let form =
       <select className="custom-select custom-select-sm ml-1" value={this.state.value} onChange={this.ChangeLoad} >
         <option value="grapefruit">Grapefruit</option>
@@ -76,18 +76,33 @@ class Menu extends Component {
   getLocalStoreKeys() {
     let keys = Object.keys(localStorage);
     let array
-    let result = ''
+    let result = []
 
     for (var key in keys) {
       let c = keys[key]
       array = c.split("-")
+      
+      if ( parseInt(array[0]) == parseInt(this.props.account_id) && array[1] == "ps" ) {
+        var timestamp = parseInt(array[2])
+        var date = new Date( timestamp * 1000 )
+        let year = date.getFullYear()
+        let month = date.getUTCMonth()+1
+        let day = date.getDay()
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var time = year+"."+month+"."+day+" "+hour+":"+min
 
-      if (array[0] === this.props.account_id && array[1] === 'ps') {
-        result += array[1]
+        var part = {}
+        part.key = c
+        part.ps = array[1]
+        part.id = array[0]
+        part.time = time
+        result.push(part)
+        
       }
     }
 
-    console.log(result)
+   return result
 
   }
 
