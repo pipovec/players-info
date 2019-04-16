@@ -52,10 +52,10 @@ class PlayerInfo extends Component {
         const data = this.readPlayerInfoData();
 
         return(
-            <div className="card-body">   
-                <h3 className="card-title">Info about player</h3>
+            <div className="shadow">   
+                <h3>Info about player</h3>
                 <table className="table"> 
-                    <thead className="thead-light"><tr>{head}</tr></thead>
+                    <thead><tr>{head}</tr></thead>
                     <tbody>
                         <tr>{data}</tr>
                     </tbody>      

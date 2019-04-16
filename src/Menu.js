@@ -47,7 +47,7 @@ class Menu extends Component {
             return <option key={data[k].key} value={data[k].key}>snapshot from {data[k].time} </option>
         })
         let form =
-            <select className="custom-select custom-select-sm ml-1" value={this.state.value} onChange={this.ChangeLoad} >
+            <select className="col-2" value={this.state.value} onChange={this.ChangeLoad} >
             <option disabled selected>Get snapshot</option>
                 {select}
             </select>
@@ -117,11 +117,11 @@ class Menu extends Component {
         return (
             <div className="row">
                 <div className="col-12">
-                    <nav className="navbar navbar-light bg-light">
-                        <form className="form-inline">
-                            <button className="btn btn-sm btn-outline-success col" onClick={this.load} type="button">Load</button>
-                            <button className="btn btn-sm btn-outline-secondary col" onClick={this.save} type="button">Save</button>
-                            <button className="btn btn-sm btn-outline-secondary col" onClick={this.delete} type="button">Delete</button>
+                    <nav className="shadow">
+                        <form >
+                            <button className="col-1 button" onClick={this.load} type="button" id="load">Load</button>
+                            <button className="col-1 button" onClick={this.save} type="button" id="save">Save</button>
+                            <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>
                             {lForm}
                         </form>
                     </nav>

@@ -30,11 +30,10 @@ class PlayerStatAll extends Component {
         const headers = this.readPlayerStatHeaders();
 
         return (
-            <div className="">
-                
-                <table className="table table-striped table-sm col-2">
+            <div>                
+                <table className="table table-striped">
                     <thead>
-                    <h5 className="text-center">Players statistics all</h5>
+                    <th colspan="3" className="text-center">Players statistics all</th>
                     </thead>
                     <tbody>
                         {headers}

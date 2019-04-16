@@ -1,0 +1,228 @@
+html, body {
+     font-family: 'Nunito', sans-serif !important;
+     font-size: 14px;
+}
+
+table tbody, td {
+     color: black;
+     font-weight: 100;
+     text-decoration: none;
+     font-size: 1rem;
+     width: 90vw;
+}
+
+thead {
+     background-color: bisque;
+}
+
+tbody>tr {
+     border-width: 1px;
+     border-bottom-style: solid;
+     padding: 5px;
+}
+
+tr>td {
+     padding: 5px;
+}
+
+tbody>tr:nth-of-type(odd) {
+     background: #f5f5f5f8;
+}
+
+
+.container {
+     display: flex;
+     justify-content: center;
+     margin-left: 0.5vw;
+     margin-right: 0.5vw;
+}
+
+a {
+     color: #636b6f;
+     padding: 0 25px;
+     font-size: 0.8em;
+     font-weight: 600;
+     letter-spacing: .1rem;
+     text-decoration: none;
+     text-transform: uppercase;
+}
+
+.chat_container {
+     display: flex;
+     justify-content: flex-start;
+     width: 100%;
+}
+
+.chat {
+     display: flex;
+     flex-direction: column;
+     width: 70%;
+}
+
+.chat_form {
+     display: flex;
+     padding: 15px;
+     align-items: center;
+     justify-content: flex-start;
+}
+
+.chat_table {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 15px;
+}
+
+.flex-center {
+     align-items: center;
+     display: flex;
+     justify-content: center;
+}
+
+.content {
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+}
+
+.info {
+     margin-top: 0vh;
+     width: 50%;
+     font-family: 'Nunito', sans-serif;
+}
+
+.odchody-td {
+     font-size: 0.9rem;
+}
+
+.fp-m {
+     margin: 5px;
+}
+
+.col-1 {
+     width: 8.33%;
+}
+
+.col-2 {
+     width: 16.66%;
+}
+
+.col-3 {
+     width: 25%;
+}
+
+.col-4 {
+     width: 33.33%;
+}
+
+.col-5 {
+     width: 41.66%;
+}
+
+.col-6 {
+     width: 50%;
+}
+
+.col-7 {
+     width: 58.33%;
+}
+
+.col-8 {
+     width: 66.66%;
+}
+
+.col-9 {
+     width: 75%;
+}
+
+.col-10 {
+     width: 83.33%;
+}
+
+.col-11 {
+     width: 91.66%;
+}
+
+.col-12 {
+     width: 100%;
+}
+
+.row {
+     display: -ms-flexbox;
+     display: flex;
+     -ms-flex-wrap: wrap;
+     flex-wrap: wrap;
+     margin-right: -15px;
+     margin-left: -15px;
+}
+
+.shadow {
+     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
+
+.button {
+     background-color: bisque;;
+     color: black;     
+     padding: 0.2rem;
+     margin-right: 0.2rem;
+}
+
+.button#load {
+     border: 2px solid #4CAF50;  
+}
+
+.button#save {
+     border: 2px solid rgb(255, 150, 64);  
+}
+
+.button#delete {
+     border: 2px solid rgb(248, 12, 4);  
+}
+
+.button {
+     -webkit-transition-duration: 0.4s;
+     /* Safari */
+     transition-duration: 0.4s;
+}
+
+.button:hover#load {
+     background-color: #4CAF50;
+     /* Green */
+     color: white;
+}
+
+.button:hover#save {
+     background-color: rgb(255, 150, 64);
+     /* Green */
+     color: white;
+}
+.button:hover#delete {
+     background-color: rgb(248, 12, 4);
+     /* Green */
+     color: white;
+}
+
+@media only screen and (max-width: 480px) {
+     [class*="info"] {
+          width: 100%;
+          font-size: 0.8rem;
+     }
+     [class*="odchody"] {
+          width: 100%;
+          font-size: 0.5rem;
+          justify-content: flex-start;
+     }
+     [class*="chat"] {
+          width: 97%;
+          font-size: 0.8rem;
+     }
+     .odchody table tbody thead td th {
+          font-size: 0.5rem;
+     }
+     [class="menu"] {
+          font-size: 0.8rem;
+     }
+     .no-mobile {
+          display: none;
+     }
+}

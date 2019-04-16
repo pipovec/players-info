@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './template.css';
 
 import PlayerInfo from './PlayerInfo';
 import Menu from './Menu';
@@ -115,7 +115,7 @@ class App extends Component {
     }
 
     return (
-      <div className="ReactApp">
+      <div className="">
         <form onSubmit={this.doRequest}>
           <input type="text" name="nickname" />
           <input type="submit" value="Najdi" />
