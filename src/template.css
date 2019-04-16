@@ -214,6 +214,13 @@ a {
      margin-right: 1rem;
 }
 
+.bg-red {
+     background-color: red;
+}
+
+.bg-green {
+     background-color: #4CAF50;
+}
 @media only screen and (max-width: 480px) {
      [class*="info"] {
           width: 100%;

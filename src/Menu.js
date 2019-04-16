@@ -8,7 +8,8 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showLoadForm: false
+            showLoadForm: false,
+            snapShotPlayer: {}
         },
             this.load = this.load.bind(this),
             this.save = this.save.bind(this),
@@ -34,8 +35,11 @@ class Menu extends Component {
 
     }
 
+    /** Ked vyberie snapshot, uloz ho do state */
     ChangeLoad(e) {
         this.setState({ showLoadForm: false })
+        var data = JSON.parse(localStorage.getItem(e.target.value))
+        this.setState({snapShotPlayer: data["all"]})        
         e.preventDefault()
     }
 
@@ -113,6 +117,7 @@ class Menu extends Component {
         if (this.state.showLoadForm) {
             lForm = this.getFormLoad()
         }
+        let snapShotAll = this.state.snapShotPlayer
 
         return (
             <div className="row">
@@ -127,7 +132,7 @@ class Menu extends Component {
                     </div>
                 </div>
                 <div className="col-4 p-3 shadow mr-1">
-                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} />
+                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} stat={snapShotAll}/>
                 </div>
                 <div className='col-7 p-3 shadow'>
                     <VehicleStatAll />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeltaComponent from './DeltaComponent.js'
 
 class PlayerStatAll extends Component {
     constructor(props) {
@@ -15,10 +16,11 @@ class PlayerStatAll extends Component {
 
         let All
         if (typeof this.props.data !== 'undefined') {
-            let all = Object.keys(this.props.data)
+            let all = Object.keys(this.props.data)           
+            
 
             All = all.map((k) => {
-                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><td>9999999</td></tr>
+                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]}/></tr>
             })
         }
 
@@ -28,12 +30,13 @@ class PlayerStatAll extends Component {
 
     render() {
         const headers = this.readPlayerStatHeaders();
-
+        
         return (
             <div>                
                 <table className="table table-striped">
                     <thead>
-                    <th colspan="3" className="text-center">Players statistics all</th>
+                    <th colspan="2" className="text-center">Players statistics all</th>
+                    <th>Delta</th>
                     </thead>
                     <tbody>
                         {headers}
