@@ -52,9 +52,9 @@ class PlayerInfo extends Component {
         const data = this.readPlayerInfoData();
 
         return(
-            <div className="shadow">   
+            <div className="mb-1">   
                 <h3>Info about player</h3>
-                <table className="table"> 
+                <table className="table mb-1"> 
                     <thead><tr>{head}</tr></thead>
                     <tbody>
                         <tr>{data}</tr>

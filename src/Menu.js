@@ -116,20 +116,20 @@ class Menu extends Component {
 
         return (
             <div className="row">
-                <div className="col-12">
-                    <nav className="shadow">
+                <div className="col-12 mb-1">
+                    <div className="shadow">
                         <form >
                             <button className="col-1 button" onClick={this.load} type="button" id="load">Load</button>
                             <button className="col-1 button" onClick={this.save} type="button" id="save">Save</button>
                             <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>
                             {lForm}
                         </form>
-                    </nav>
+                    </div>
                 </div>
-                <div className="col-4 p-3">
+                <div className="col-4 p-3 shadow mr-1">
                     <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} />
                 </div>
-                <div className='col-8 p-3'>
+                <div className='col-7 p-3 shadow'>
                     <VehicleStatAll />
                 </div>
             </div>

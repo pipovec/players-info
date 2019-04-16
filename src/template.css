@@ -29,7 +29,6 @@ tbody>tr:nth-of-type(odd) {
      background: #f5f5f5f8;
 }
 
-
 .container {
      display: flex;
      justify-content: center;
@@ -152,8 +151,6 @@ a {
      display: flex;
      -ms-flex-wrap: wrap;
      flex-wrap: wrap;
-     margin-right: -15px;
-     margin-left: -15px;
 }
 
 .shadow {
@@ -161,22 +158,24 @@ a {
 }
 
 .button {
-     background-color: bisque;;
-     color: black;     
+     background-color: bisque;
+     ;
+     color: black;
      padding: 0.2rem;
      margin-right: 0.2rem;
+     width: 8rem;
 }
 
 .button#load {
-     border: 2px solid #4CAF50;  
+     border: 2px solid #4CAF50;
 }
 
 .button#save {
-     border: 2px solid rgb(255, 150, 64);  
+     border: 2px solid rgb(255, 150, 64);
 }
 
 .button#delete {
-     border: 2px solid rgb(248, 12, 4);  
+     border: 2px solid rgb(248, 12, 4);
 }
 
 .button {
@@ -196,10 +195,23 @@ a {
      /* Green */
      color: white;
 }
+
 .button:hover#delete {
      background-color: rgb(248, 12, 4);
      /* Green */
      color: white;
+}
+
+.mb-1 {
+     margin-bottom: 1rem;
+}
+
+.mb-2 {
+     margin-bottom: 2rem;
+}
+
+.mr-1 {
+     margin-right: 1rem;
 }
 
 @media only screen and (max-width: 480px) {

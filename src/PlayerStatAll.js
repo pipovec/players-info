@@ -18,7 +18,7 @@ class PlayerStatAll extends Component {
             let all = Object.keys(this.props.data)
 
             All = all.map((k) => {
-                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td></tr>
+                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><td>9999999</td></tr>
             })
         }
 
