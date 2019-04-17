@@ -10,9 +10,9 @@ class Menu extends Component {
         this.state = {
             showLoadForm: false,
             snapShotPlayer: '',
-        },
-            this.load = this.load.bind(this),
-            this.save = this.save.bind(this),
+        }
+            this.load = this.load.bind(this)
+            this.save = this.save.bind(this)
             this.delete = this.delete.bind(this)
         this.ChangeLoad = this.ChangeLoad.bind(this)
     }
@@ -25,13 +25,13 @@ class Menu extends Component {
 
     save(event) {
         let statistic = this.props.data[this.props.account_id].statistics;
-        var ts = new Date / 1E3 | 0;
+        var ts = new Date() / 1E3 | 0;
         let key = this.props.account_id + "-ps-" + ts;
 
         localStorage.setItem(key, JSON.stringify(statistic));
         event.preventDefault();
 
-        alert("Ukladam kluc: " + key);
+        alert("Saving the snapshot: " + this.timeConverter(ts));
 
     }
 
@@ -48,11 +48,11 @@ class Menu extends Component {
         let key = Object.keys(data)
 
         let select = key.map((k) => {
-            return <option key={data[k].key} value={data[k].key}>snapshot from {data[k].time} </option>
+            return <option key={data[k].key} value={data[k].key}>Snapshot from {data[k].time} </option>
         })
         let form =
             <select className="col-2" value={this.state.value} onChange={this.ChangeLoad} >
-                <option disabled selected>Get snapshot</option>
+                <option defaultValue>Select snapshot</option>
                 {select}
             </select>
 
@@ -87,16 +87,10 @@ class Menu extends Component {
             let c = keys[key]
             array = c.split("-")
 
-            if (parseInt(array[0]) === parseInt(this.props.account_id) && array[1] == "ps") {
-                var timestamp = parseInt(array[2])
-                var date = new Date(timestamp * 1000)
-                let year = date.getFullYear()
-                let month = date.getUTCMonth() + 1
-                let day = date.getDay()
-                var hour = date.getHours();
-                var min = date.getMinutes();
-                var time = year + "/" + month + "/" + day + " " + hour + ":" + min
-
+            if (parseInt(array[0], 10) === parseInt(this.props.account_id, 10) && array[1] === "ps") {
+                var timestamp = parseInt(array[2], 10)                
+                var time = this.timeConverter(timestamp)
+                
                 var part = {}
                 part.key = c
                 part.ps = array[1]
@@ -133,10 +127,10 @@ class Menu extends Component {
                         </form>
                     </div>
                 </div>
-                <div className="col-4 p-3 shadow mr-1">
+                <div className="col-3 p-3 shadow mr-1">
                     <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} stat={snapShotAll} />
                 </div>
-                <div className='col-7 p-3 shadow'>
+                <div className='col-8 p-3 shadow'>
                     <VehicleStatAll />
                 </div>
             </div>

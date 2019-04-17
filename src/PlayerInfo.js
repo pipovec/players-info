@@ -22,10 +22,10 @@ class PlayerInfo extends Component {
             if(k !== "statistics" && k!== 'client_language' && k!== 'private') {   
                 if( k === 'last_battle_time' || k === 'created_at' || k === 'updated_at' || k === 'logout_at' ) {
                     let time = this.timeConverter(this.props.data[keys][k])
-                    return   <td key={k+1}>{time}</td>
+                    return   <td className="text-center" key={k+1}>{time}</td>
                 }
                 else {
-                    return   <td key={k+1}> {this.props.data[keys][k]}</td>
+                    return   <td className="text-center" key={k+1}> {this.props.data[keys][k]}</td>
                 }
                  
             }

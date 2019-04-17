@@ -29,6 +29,17 @@ tbody>tr:nth-of-type(odd) {
      background: #f5f5f5f8;
 }
 
+.text-right {
+     text-align: end;
+}
+
+.text-center {
+     text-align: center;
+}
+.text-left {
+     text-align: start;
+}
+
 .container {
      display: flex;
      justify-content: center;

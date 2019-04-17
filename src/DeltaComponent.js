@@ -4,18 +4,19 @@ class DeltaComponent extends Component {
    
 
     render() {
-        let trieda = ""
-        let result = 0
+        var trieda = "text-center"
+        var result = 0.00
+
         if (this.props.snapShot !== 0) {
-            let result = this.props.now - this.props.snapShot
+            result = (parseFloat(this.props.now).toPrecision(3) - parseFloat(this.props.snapShot).toPrecision(3))            
 
-
-            if (result > 0) trieda = "bg-green";
-            if (result < 0) trieda = "bg-red";
+            if (result > 0.00) trieda = "bg-green text-center";
+            if (result < 0.00) trieda = "bg-red text-center";
         }
 
 
         return (
+            
             <td className={trieda}>{result}</td>
         )
     }

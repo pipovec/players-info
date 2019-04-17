@@ -19,7 +19,7 @@ class PlayerStatAll extends Component {
 
 
             All = all.map((k) => {
-                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]} /></tr>
+                return <tr key={k + 989}><td className="text-right">{k}</td><td className="text-center">{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]} /></tr>
             })
         }
 

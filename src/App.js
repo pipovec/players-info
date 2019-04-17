@@ -44,7 +44,7 @@ class App extends Component {
         return resp.json();
       })
       .then((result) => {
-        this.setState({ account_id: result.data[0].account_id });
+        //this.setState({ account_id: result.data[0].account_id });
         return result.data[0].account_id;
       })
       .then((account_id) => {
@@ -56,8 +56,8 @@ class App extends Component {
   };
 
 
-  loadPlayerStat(account_id) {
-    fetch(URL2 + account_id)
+  loadPlayerStat(id) {
+    fetch(URL2 + id)
       .then((resp) => {
         if (resp.status !== 200) {
           console.log('Chyba, status kod: ' + resp.status);
@@ -69,7 +69,7 @@ class App extends Component {
       })
       .then((result) => {
         if (result.status === "ok") {
-          this.setState({ playerStat: result.data, statPlayers: true });
+          this.setState({ playerStat: result.data, statPlayers: true, account_id: id });
         } else {
           this.setState({ playerStat: { "Status": 'not found' } });
         }
@@ -77,11 +77,11 @@ class App extends Component {
       });
   };
 
-  loadVehicleStat(account_id){
+  loadVehicleStat(id){
     
     fetch(URL3, {
       method: 'POST',      
-      body: "&account_id="+account_id+"&fields"+vehicleFileds 
+      body: "&account_id="+id+"&fields"+vehicleFileds 
     })
     .then((res) => res.json())      
     .then((result) => {
@@ -92,11 +92,9 @@ class App extends Component {
   }
 
   render() {
-    let playerInfo = <div></div>;   
-    var keys1 = Object.keys(this.state.playerStat)
-    var keys2 = Object.keys(this.state.account_id)
+    let playerInfo = <div></div>;       
 
-    console.log("k1 "+keys1 + " k2 "+keys2)
+    
     /** Podmienene zobrazenie hracskych statov */
     let menu        
     if ( this.state.statPlayers) {
