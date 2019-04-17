@@ -151,6 +151,8 @@ a {
      display: flex;
      -ms-flex-wrap: wrap;
      flex-wrap: wrap;
+     flex-direction: row;
+     width: 100%;
 }
 
 .shadow {

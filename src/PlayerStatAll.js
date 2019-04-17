@@ -6,8 +6,7 @@ class PlayerStatAll extends Component {
         super(props);
         this.state = {
             showLoadForm: false
-        }
-        const statTable = 'all';
+        }        
     }
 
 
@@ -16,11 +15,11 @@ class PlayerStatAll extends Component {
 
         let All
         if (typeof this.props.data !== 'undefined') {
-            let all = Object.keys(this.props.data)           
-            
+            let all = Object.keys(this.props.data)
+
 
             All = all.map((k) => {
-                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]}/></tr>
+                return <tr key={k + 989}><td >{k}</td><td>{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]} /></tr>
             })
         }
 
@@ -30,13 +29,15 @@ class PlayerStatAll extends Component {
 
     render() {
         const headers = this.readPlayerStatHeaders();
-        
+
         return (
-            <div>                
+            <div>
                 <table className="table table-striped">
                     <thead>
-                    <th colspan="2" className="text-center">Players statistics all</th>
-                    <th>Delta</th>
+                        <tr>
+                            <th colSpan="2" className="text-center">Players statistics all</th>
+                            <th>Delta</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {headers}

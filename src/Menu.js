@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PlayerStatAll from './PlayerStatAll';
 import VehicleStatAll from './VehicleStatAll'
 
-import './App.css';
+
 
 class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showLoadForm: false,
-            snapShotPlayer: {}
+            snapShotPlayer: '',
         },
             this.load = this.load.bind(this),
             this.save = this.save.bind(this),
@@ -39,7 +39,7 @@ class Menu extends Component {
     ChangeLoad(e) {
         this.setState({ showLoadForm: false })
         var data = JSON.parse(localStorage.getItem(e.target.value))
-        this.setState({snapShotPlayer: data["all"]})        
+        this.setState({ snapShotPlayer: data["all"] })
         e.preventDefault()
     }
 
@@ -52,7 +52,7 @@ class Menu extends Component {
         })
         let form =
             <select className="col-2" value={this.state.value} onChange={this.ChangeLoad} >
-            <option disabled selected>Get snapshot</option>
+                <option disabled selected>Get snapshot</option>
                 {select}
             </select>
 
@@ -87,7 +87,7 @@ class Menu extends Component {
             let c = keys[key]
             array = c.split("-")
 
-            if (parseInt(array[0]) == parseInt(this.props.account_id) && array[1] == "ps") {
+            if (parseInt(array[0]) === parseInt(this.props.account_id) && array[1] == "ps") {
                 var timestamp = parseInt(array[2])
                 var date = new Date(timestamp * 1000)
                 let year = date.getFullYear()
@@ -118,6 +118,8 @@ class Menu extends Component {
             lForm = this.getFormLoad()
         }
         let snapShotAll = this.state.snapShotPlayer
+       
+       
 
         return (
             <div className="row">
@@ -132,7 +134,7 @@ class Menu extends Component {
                     </div>
                 </div>
                 <div className="col-4 p-3 shadow mr-1">
-                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} stat={snapShotAll}/>
+                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} stat={snapShotAll} />
                 </div>
                 <div className='col-7 p-3 shadow'>
                     <VehicleStatAll />

@@ -8,14 +8,13 @@ const URL = 'https://api.worldoftanks.eu/wot/account/list/?application_id=883ff6
 const URL2 = 'https://api.worldoftanks.eu/wot/account/info/?application_id=883ff6ceefb13177357ffea34d6fb06f&account_id='
 const URL3 = 'https://api.worldoftanks.eu/wot/tanks/stats/?application_id=883ff6ceefb13177357ffea34d6fb06f'
 const vehicleFileds = 'tank_id,all.battles,all.damage_dealt,all.frags,all.wins,all.spotted,all.dropped_capture_points'
-const api_id = '883ff6ceefb13177357ffea34d6fb06'
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      account_id: '',
-      nickname: '',
+      account_id: '',      
       playerStat: '',
       vehicleStat: '',
       statPlayers: false,
@@ -23,21 +22,17 @@ class App extends Component {
       checked: true,
     };
 
-    this.findNick = this.findNick.bind(this);
-    this.changeInputValue = this.changeInputValue.bind(this);
+    this.findNick = this.findNick.bind(this);    
     this.loadPlayerStat = this.loadPlayerStat.bind(this);
     this.doRequest = this.doRequest.bind(this);
   }
-
-  changeInputValue(e) {
-    this.setState({ nickname: e.target.value });
-  };
+  
 
   doRequest(event) {
-    let nick = event.target.nickname.value;
+    let nick = event.target.nickname.value;   
     
-    this.setState({ nickname: nick });
     event.preventDefault();
+    document.title = "Hracske staty | " + nick;
     this.findNick(nick);
   }
 
@@ -49,14 +44,14 @@ class App extends Component {
         return resp.json();
       })
       .then((result) => {
-        this.setState({ account_id: result.data[0].account_id, nickname: result.data[0].nickname });
+        this.setState({ account_id: result.data[0].account_id });
         return result.data[0].account_id;
       })
       .then((account_id) => {
         this.loadPlayerStat(account_id);
         this.loadVehicleStat(account_id);
       });
-    document.title = "Hracske staty | " + this.state.nickname;
+    
 
   };
 
@@ -98,20 +93,25 @@ class App extends Component {
 
   render() {
     let playerInfo = <div></div>;   
-    
+    var keys1 = Object.keys(this.state.playerStat)
+    var keys2 = Object.keys(this.state.account_id)
 
+    console.log("k1 "+keys1 + " k2 "+keys2)
     /** Podmienene zobrazenie hracskych statov */
-    let menu
+    let menu        
+    if ( this.state.statPlayers) {
+      menu = <div><Menu  account_id={this.state.account_id} data={this.state.playerStat}/></div>;
+    }
+    else{
+      
+    }
+
+
     if (this.state.statPlayers) {
-      menu = <div><Menu data={this.state.playerStat} account_id={this.state.account_id} /></div>;
+      playerInfo = <div className="shadow"><PlayerInfo account_id={this.state.account_id} data={this.state.playerStat} /></div>;      
     }
     else {
-      menu = <div></div>
-    }
 
-
-    if (this.state.account_id > 0) {
-      playerInfo = <div className="card mt-1"><PlayerInfo account_id={this.state.account_id} data={this.state.playerStat} /></div>;      
     }
 
     return (
