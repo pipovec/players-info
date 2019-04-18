@@ -19,6 +19,7 @@ class Menu extends Component {
 
     load(event) {
         this.setState({ showLoadForm: true })
+        this.setState({ snapShotPlayer: '' })
         event.preventDefault()
 
     }
@@ -61,8 +62,7 @@ class Menu extends Component {
     }
 
     delete(event) {
-        event.preventDefault();
-        alert("Delete");
+        this.setState({showLoadForm: false})
     }
 
     timeConverter(UNIX_timestamp) {
@@ -127,10 +127,10 @@ class Menu extends Component {
                         </form>
                     </div>
                 </div>
-                <div className="col-3 p-3 shadow mr-1">
-                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} stat={snapShotAll} />
+                <div className="col-3 shadow">
+                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} snapShot={snapShotAll} />
                 </div>
-                <div className='col-8 p-3 shadow'>
+                <div className='col-8 shadow'>
                     <VehicleStatAll />
                 </div>
             </div>
