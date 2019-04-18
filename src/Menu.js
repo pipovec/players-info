@@ -122,7 +122,7 @@ class Menu extends Component {
                         <form >
                             <button className="col-1 button" onClick={this.load} type="button" id="load">Load</button>
                             <button className="col-1 button" onClick={this.save} type="button" id="save">Save</button>
-                            <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>
+                            <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>                            
                             {lForm}
                         </form>
                     </div>

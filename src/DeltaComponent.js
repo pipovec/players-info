@@ -6,28 +6,30 @@ class DeltaComponent extends Component {
     render() {
         var trieda
         var result
-        console.log(this.props.snapShot)
-        if(typeof this.props.snapShot === 'undefined' ) {
+        var mark = ""
+                
+        if(typeof this.props.past === 'undefined' ) {
             trieda = "text-center"
             result = 0.00
-        }
+        }        
         else {
-            if (this.props.snapShot !== 0) {
+            if (this.props.past !== 0) {
                 
                 let now = this.props.now
                 let past = this.props.past
     
                 result = now - past
     
-                //console.log(now +" - "+past)
-                if (result > 0.00) trieda = "bg-green text-center";
-                if (result < 0.00) trieda = "bg-red text-center";
+                console.log(now +" - "+past)
+                if (result > 0.00) {trieda = "bg-green text-center"; mark = "+";}
+                if (result < 0.00) {trieda = "bg-red text-center"; mark = "-";};
+                if (result === 0.00) {trieda = "text-center"; mark = "";};
             }
         }
 
         return (
             
-            <td className={trieda}>{result}</td>
+            <td className={trieda}>{mark}{result.toFixed(2)}</td>
         )
     }
 

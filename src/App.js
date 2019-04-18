@@ -20,12 +20,14 @@ class App extends Component {
       statPlayers: false,
       statVehicle: false,
       checked: true,
+      submitText : "Find"
     };
 
     this.findNick = this.findNick.bind(this);    
     this.loadPlayerStat = this.loadPlayerStat.bind(this);
     this.doRequest = this.doRequest.bind(this);
   }
+  
   
 
   doRequest(event) {
@@ -69,7 +71,7 @@ class App extends Component {
       })
       .then((result) => {
         if (result.status === "ok") {
-          this.setState({ playerStat: result.data, statPlayers: true, account_id: id });
+          this.setState({ playerStat: result.data, statPlayers: true, account_id: id, submitText: "Refresh"});
         } else {
           this.setState({ playerStat: { "Status": 'not found' } });
         }
@@ -116,7 +118,7 @@ class App extends Component {
       <div className="">
         <form onSubmit={this.doRequest}>
           <input type="text" name="nickname" />
-          <input type="submit" value="Najdi" />
+          <input type="submit" value={this.state.submitText} />
         </form>
         {playerInfo}        
         {menu}
