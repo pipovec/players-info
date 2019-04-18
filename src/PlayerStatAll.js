@@ -16,7 +16,7 @@ class PlayerStatAll extends Component {
         let All
         if (typeof this.props.data !== 'undefined') {
             let all = Object.keys(this.props.data)
-
+            console.log(all)
 
             All = all.map((k) => {
                 return <tr key={k + 989}><td className="text-right">{k}</td><td className="text-center">{this.props.data[k]}</td><DeltaComponent now={this.props.stat[k]} snapShot={this.props.data[k]} /></tr>

@@ -9,7 +9,7 @@ class DeltaComponent extends Component {
 
         if (this.props.snapShot !== 0) {
             result = (parseFloat(this.props.now).toPrecision(3) - parseFloat(this.props.snapShot).toPrecision(3))            
-
+            console.log(this.props.now+" - "+this.props.snapShot)
             if (result > 0.00) trieda = "bg-green text-center";
             if (result < 0.00) trieda = "bg-red text-center";
         }
