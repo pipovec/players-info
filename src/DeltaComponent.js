@@ -20,9 +20,9 @@ class DeltaComponent extends Component {
     
                 result = now - past
     
-                console.log(now +" - "+past)
+                //console.log(now +" - "+past)
                 if (result > 0.00) {trieda = "bg-green text-center"; mark = "+";}
-                if (result < 0.00) {trieda = "bg-red text-center"; mark = "-";};
+                if (result < 0.00) {trieda = "bg-red text-center"; mark = "";};
                 if (result === 0.00) {trieda = "text-center"; mark = "";};
             }
         }

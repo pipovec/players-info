@@ -88,7 +88,7 @@ class App extends Component {
     .then((res) => res.json())      
     .then((result) => {
       
-      this.setState({vehicleStat: result })
+      this.setState({statVehicle: true, vehicleStat: result.data })
     });
 
   }
@@ -99,8 +99,11 @@ class App extends Component {
     
     /** Podmienene zobrazenie hracskych statov */
     let menu        
-    if ( this.state.statPlayers) {
-      menu = <div><Menu  account_id={this.state.account_id} data={this.state.playerStat}/></div>;
+    if ( this.state.statPlayers ) {      
+      menu = <div><Menu  account_id={this.state.account_id} data={this.state.playerStat}  /></div>;
+      if(this.state.statVehicle) {
+        menu = <div><Menu  account_id={this.state.account_id} data={this.state.playerStat} vehicle={this.state.vehicleStat} /></div>;
+      }
     }
     else{
       

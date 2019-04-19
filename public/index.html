@@ -9,7 +9,8 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet">
+    <link href="/template.css" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,7 +26,15 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+
+      <div class="row">
+        <div id="root" class="col-9"></div>
+        <div class="col-2">
+          Miesto pre poznamky
+        </hr >
+        </div>
+      </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

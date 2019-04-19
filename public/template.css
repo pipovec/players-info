@@ -8,16 +8,7 @@ table tbody, td {
      font-weight: 100;
      text-decoration: none;
      font-size: 1rem;
-     
-}     
-
-.table-stat {
-     table-layout: fixed;
-     max-width: 100% !important;
-     font-size: 0.8rem;
-}
-.small{
-     font-size: 0.8rem;
+     width: 90vw;
 }
 
 thead {
@@ -127,7 +118,6 @@ a {
 }
 
 .col-3 {
-     flex-basis: 25%;
      max-width: 25%;
 }
 
@@ -144,7 +134,7 @@ a {
 }
 
 .col-7 {
-     max-width: 65.2%;
+     max-width: 58.33%;
 }
 
 .col-8 {
@@ -152,7 +142,6 @@ a {
 }
 
 .col-9 {
-     flex-basis: 75%;
      max-width: 75%;
 }
 
@@ -180,10 +169,7 @@ a {
      display: -ms-flexbox;
      display: flex;
      -ms-flex-wrap: wrap;
-     flex-wrap: wrap;   
-     flex-direction: row; 
-     justify-content: flex-start     
-
+     flex-wrap: wrap;     
 }
 
 .shadow {

@@ -11,9 +11,9 @@ class Menu extends Component {
             showLoadForm: false,
             snapShotPlayer: '',
         }
-            this.load = this.load.bind(this)
-            this.save = this.save.bind(this)
-            this.delete = this.delete.bind(this)
+        this.load = this.load.bind(this)
+        this.save = this.save.bind(this)
+        this.delete = this.delete.bind(this)
         this.ChangeLoad = this.ChangeLoad.bind(this)
     }
 
@@ -62,7 +62,7 @@ class Menu extends Component {
     }
 
     delete(event) {
-        this.setState({showLoadForm: false})
+        this.setState({ showLoadForm: false })
     }
 
     timeConverter(UNIX_timestamp) {
@@ -88,9 +88,9 @@ class Menu extends Component {
             array = c.split("-")
 
             if (parseInt(array[0], 10) === parseInt(this.props.account_id, 10) && array[1] === "ps") {
-                var timestamp = parseInt(array[2], 10)                
+                var timestamp = parseInt(array[2], 10)
                 var time = this.timeConverter(timestamp)
-                
+
                 var part = {}
                 part.key = c
                 part.ps = array[1]
@@ -112,8 +112,12 @@ class Menu extends Component {
             lForm = this.getFormLoad()
         }
         let snapShotAll = this.state.snapShotPlayer
-       
-       
+
+        let vehicleStat
+        if(typeof this.props.vehicle !== 'undefined')    {
+            vehicleStat = <VehicleStatAll vehicle={this.props.vehicle}/>
+        }
+        
 
         return (
             <div className="row">
@@ -122,16 +126,18 @@ class Menu extends Component {
                         <form >
                             <button className="col-1 button" onClick={this.load} type="button" id="load">Load</button>
                             <button className="col-1 button" onClick={this.save} type="button" id="save">Save</button>
-                            <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>                            
+                            <button className="col-1 button" onClick={this.delete} type="button" id="delete">Delete</button>
                             {lForm}
                         </form>
                     </div>
                 </div>
-                <div className="col-3 shadow">
-                    <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} snapShot={snapShotAll} />
-                </div>
-                <div className='col-8 shadow'>
-                    <VehicleStatAll />
+                <div className="row">
+                    <div className="col-4 shadow">
+                        <PlayerStatAll data={this.props.data[this.props.account_id].statistics.all} account_id={this.props.account_id} snapShot={snapShotAll} />
+                    </div>
+                    <div className='col-7 shadow'>
+                        {vehicleStat}
+                    </div>
                 </div>
             </div>
 

@@ -6,7 +6,7 @@ class PlayerStatAll extends Component {
         super(props);
         this.state = {
             showLoadForm: false
-        }        
+        }
     }
 
 
@@ -16,7 +16,7 @@ class PlayerStatAll extends Component {
         let All
         if (typeof this.props.data !== 'undefined') {
             let all = Object.keys(this.props.data)
-            
+
 
             All = all.map((k) => {
                 return <tr key={k + 989}><td className="text-right">{k}</td><td className="text-center">{this.props.data[k]}</td><DeltaComponent now={this.props.data[k]} past={this.props.snapShot[k]} /></tr>
@@ -31,19 +31,19 @@ class PlayerStatAll extends Component {
         const headers = this.readPlayerStatHeaders();
 
         return (
-            <div>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th colSpan="2" className="text-center">Players statistics all</th>
-                            <th>Delta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {headers}
-                    </tbody>
-                </table>
-            </div>
+            <table className="table-stat">
+                <thead>
+                    <tr>
+                        <th className="text-center">Players statistics all</th>
+                        <th className="text-center">Now</th>
+                        <th className="text-center">Delta</th>
+                    </tr>
+                </thead>
+                <tbody className="small">
+                    {headers}
+                </tbody>
+            </table>
+
         )
     }
 
